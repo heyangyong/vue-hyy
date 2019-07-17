@@ -30,8 +30,8 @@ export default {
   data: () => ({
     // 登录表单数据绑定
     loginFrom: {
-      username: '1',
-      password: '1'
+      username: 'admin',
+      password: '123456'
     },
     // 规则验证
     loginRules: {
@@ -57,9 +57,13 @@ export default {
       // 表单预验证
       this.$refs.loginFromRef.validate(async valid => {
         console.log(valid)
-        // if (!valid) return
-        // const res = await this.$http.post('login', this.loginFrom)
-        // console.log(res)
+        if (!valid) return
+        const { data: { data, meta } } = await this.$http.post('login', this.loginFrom)
+        console.log(data)
+        if (meta.status !== 200) return this.$message.error('登录失败')
+        this.$message.success('登录成功')
+        window.sessionStorage.setItem('token', data.token)
+        this.$router.push('./home')
       })
     }
   }
