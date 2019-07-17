@@ -1,5 +1,4 @@
 <template>
-import { async } from 'q';
   <div id="login_container" class="login_container">
     <div class="login-box">
       <!-- 头像 -->
@@ -58,9 +57,9 @@ export default {
       // 表单预验证
       this.$refs.loginFromRef.validate(async valid => {
         console.log(valid)
-        if (!valid) return
-        const res = await this.$http.post('login', this.loginFrom)
-        console.log(res)
+        // if (!valid) return
+        // const res = await this.$http.post('login', this.loginFrom)
+        // console.log(res)
       })
     }
   }
