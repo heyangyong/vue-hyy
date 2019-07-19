@@ -34,7 +34,10 @@
           </el-menu>
         </el-aside>
         <!-- 右侧内容 -->
-        <el-main>Main</el-main>
+        <el-main>
+          <!-- 登录后渲染的组件 -->
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
 </template>

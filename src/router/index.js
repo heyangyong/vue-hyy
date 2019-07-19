@@ -1,15 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './views/Login/index.vue'
-import Home from './views/Home/index.vue'
+import Login from '../views/Login/index.vue'
+import Home from '../views/Home/index.vue'
+import Welcome from '../views/Home/Welcome'
 Vue.use(Router)
 
 // export default router
 const router = new Router({
     routes: [
-        { path: '/', redirect: '/login' },
+        { path: '/', redirect: '/home' },
         { path: '/login', component: Login },
-        { path: '/home', component: Home }
+        {
+            path: '/home',
+            component: Home,
+            redirect: '/home/welcom',
+            children: [{
+                path: '/home/welcom',
+                component: Welcome
+            }]
+        }
     ]
 })
 
@@ -26,5 +35,4 @@ router.beforeEach((to, from, next) => {
     if (!tokenStr) return next('/login')
     next()
 })
-
 export default router
