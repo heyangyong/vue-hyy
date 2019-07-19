@@ -14,7 +14,8 @@
           <div class="toggle-button" @click='toggle'>|||</div>
           <!-- 侧边栏菜单 -->
           <el-menu background-color="#333744" text-color="#fff"
-           active-text-color="#409fff" :unique-opened="true" :collapse="iscollapse" :collapse-transition="false">
+           active-text-color="#409fff" :unique-opened="true" :collapse="iscollapse"
+            :collapse-transition="false" router :default-active="active">
              <!-- 一级菜单 -->
             <el-submenu :index="menu.id+''" v-for="menu in menuslist" :key="menu.id">
               <!-- 一级菜单模板区域 -->
@@ -23,7 +24,8 @@
                 <span>{{menu.authName}}</span>
               </template>
 
-                <el-menu-item :index="subMenu.id+''"  v-for="subMenu in menu.children" :key="subMenu.id">
+                <el-menu-item :index="'/'+subMenu.path"  v-for="subMenu in menu.children"
+                :key="subMenu.id" @click="saveActive('/'+subMenu.path)">
                   <!-- 二级菜单 -->
                   <template slot="title">
                     <i class="el-icon-menu"></i>
@@ -53,12 +55,14 @@ export default {
         '102': 'iconfont icon-danju',
         '145': 'iconfont icon-baobiao'
       },
-      iscollapse: false
+      iscollapse: false,
+      active: ''
 
     }
   },
   created () {
     this.getMenuList()
+    this.active = sessionStorage.getItem('active')
   },
   methods: {
     clear () {
@@ -75,6 +79,10 @@ export default {
     toggle () {
       this.iscollapse = !this.iscollapse
       // console.log(this.iscollapse)
+    },
+    // 默认选中项
+    saveActive (activePath) {
+      sessionStorage.setItem('active', activePath)
     }
   },
   computed: {

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '../views/Login/index.vue'
 import Home from '../views/Home/index.vue'
 import Welcome from '../views/Home/Welcome'
+import Users from '../views/Home/Users'
 Vue.use(Router)
 
 // export default router
@@ -15,9 +16,14 @@ const router = new Router({
             component: Home,
             redirect: '/home/welcom',
             children: [{
-                path: '/home/welcom',
-                component: Welcome
-            }]
+                    path: '/home/welcom',
+                    component: Welcome
+                },
+                {
+                    path: '/users',
+                    component: Users
+                }
+            ]
         }
     ]
 })

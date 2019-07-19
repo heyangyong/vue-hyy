@@ -6,3 +6,25 @@ body,
   width: 100%;
   height: 100%;
 }
+html .el-breadcrumb,
+body .el-breadcrumb,
+#app .el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+html .el-card,
+body .el-card,
+#app .el-card {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+html .el-table,
+body .el-table,
+#app .el-table {
+  margin-top: 15px;
+  font-size: 12px;
+}
+html .el-pagination,
+body .el-pagination,
+#app .el-pagination {
+  margin-top: 15px;
+}
