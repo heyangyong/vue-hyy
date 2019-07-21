@@ -54,6 +54,7 @@ export default {
     },
     // 点击登录按钮
     login () {
+      console.dir(this)
       // 表单预验证
       this.$refs.loginFromRef.validate(async valid => {
         console.log(valid)
