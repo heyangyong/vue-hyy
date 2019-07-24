@@ -13,6 +13,11 @@ import './plugins/element.js'
 
 import TreeTable from 'vue-table-with-tree-grid'
 
+import moment from 'moment'
+Vue.filter('dateFormat', originVal => {
+  return moment(originVal).format('MMMM Do YYYY, h:mm:ss a')
+})
+
 // // 手动配置element - ui
 // import ElementUI from 'element-ui'
 // import 'element-ui/lib/theme-chalk/index.css'
@@ -21,6 +26,6 @@ Vue.config.productionTip = false
 Vue.component('tree-table', TreeTable)
 
 new Vue({
-    router,
-    render: h => h(App)
+  router,
+  render: h => h(App)
 }).$mount('#app')

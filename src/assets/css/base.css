@@ -29,3 +29,13 @@ body .el-pagination,
 #app .el-pagination {
   margin-top: 15px;
 }
+html .el-steps,
+body .el-steps,
+#app .el-steps {
+  margin: 15px 0;
+}
+html .el-step__title,
+body .el-step__title,
+#app .el-step__title {
+  font-size: 13px;
+}
