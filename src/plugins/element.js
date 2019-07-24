@@ -28,10 +28,18 @@ import {
     MessageBox,
     Tree,
     Select,
-    Option
+    Option,
+    Cascader,
+    Alert,
+    TabPane,
+    Tabs
 } from 'element-ui'
 
+Vue.use(Tabs)
+Vue.use(TabPane)
 Vue.use(Select)
+Vue.use(Alert)
+Vue.use(Cascader)
 Vue.use(Option)
 Vue.use(Tree)
 Vue.use(Pagination)

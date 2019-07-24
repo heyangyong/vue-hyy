@@ -48,16 +48,16 @@ export default {
   methods: {
     // 点击重置按钮 重置表单内容
     resetFrom () {
-      console.log(this)
+      // console.log(this)
       this.$refs.loginFromRef.resetFields()
       this.loginFrom.username = this.loginFrom.password = ''
     },
     // 点击登录按钮
     login () {
-      console.dir(this)
+      // console.dir(this)
       // 表单预验证
       this.$refs.loginFromRef.validate(async valid => {
-        console.log(valid)
+        // console.log(valid)
         if (!valid) return
         const { data: { data, meta } } = await this.$http.post('login', this.loginFrom)
         console.log(data)

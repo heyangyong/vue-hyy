@@ -113,18 +113,18 @@ export default {
       if (meta.status !== 200) return this.$message.error('获取角色列表失败')
       // console.log(data)
       this.rolesList = res
-      console.log(this.rolesList)
+      // console.log(this.rolesList)
     },
     // 获取树形权限列表数据
     async rolesShow (role) {
       this.roleId = role.id
-      console.log(role)
+      // console.log(role)
 
       const { data: { data: res, meta } } = await this.$http.get('rights/tree')
       if (meta.status !== 200) return this.$message.error('获取权限列表失败')
       // console.log(data)
       this.rights = res
-      console.log(this.rights)
+      // console.log(this.rights)
       // 调用递归获取节点id
       this.getLeafKeys(role, this.defKeys)
       this.rolesDialogVisible = true
